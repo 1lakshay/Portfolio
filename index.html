@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<!--
+  ══════════════════════════════════════════════════════════════════
+  STILL TO DO: fix the TheCodePulse marketplace link (currently
+  points at the generic marketplace homepage).
+  ══════════════════════════════════════════════════════════════════
+-->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title  >Lakshay Singh — AI Engineer | LLM Agents, RAG, Voice AI</title>
+<meta name="description" content="AI Engineer building LLM systems — multi-agent platforms on LangGraph, retrieval-augmented generation with source provenance, text-to-speech engines built from scratch in PyTorch, reverse engineering of Systems, making prototypes, and delivering work at fast pace. Open to remote GenAI / LLM engineer roles.">
+<meta property="og:title" content="Lakshay Singh — AI Engineer">
+<meta property="og:description" content="LLM agents · RAG with provenance · TTS from scratch · FastAPI · LangGraph. Remote-ready, contractor/EOR-ready.">
+<meta property="og:type" content="website">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Lakshay Singh",
+  "jobTitle": "AI Engineer",
+  "description": "AI Engineer specializing in LLM agents, retrieval-augmented generation, and speech synthesis.",
+  "email": "mailto:lakshay.singh1@gmail.com",
+  "address": {"@type": "PostalAddress", "addressLocality": "Gurugram", "addressCountry": "IN"},
+  "sameAs": [
+    "https://www.linkedin.com/in/lakshay-singh-521l/",
+    "https://medium.com/@lakshay.singh1",
+    "https://github.com/1lakshay",
+    "https://leetcode.com/u/Lakshay1201/",
+    "https://huggingface.co/Lakshay1201"
+  ],
+  "knowsAbout": ["Large Language Models","Retrieval-Augmented Generation","Agentic AI","LangGraph","LangChain","PyTorch","FastAPI","Text-to-Speech","Vector Databases","Multi-Agent Systems","LLM Evaluation"]
+}
+</script>
+<style>
+  :root, [data-theme="dark"]{
+    --bg:#191b1f;
+    --panel:#1f2126;
+    --panel2:#24262c;
+    --line:#2e3138;
+    --line2:#3a3e46;
+    --text:#d3dae2;
+    --muted:#8b95a2;
+    --faint:#5f6a77;
+    --link:#5ba3f5;
+    --link-vis:#8fbef7;
+    --hi:#e8b04b;
+    --ok:#57c98a;
+    --amber-bg:rgba(232,176,75,.12);
+    --amber-ln:rgba(232,176,75,.45);
+    --row-hover:#25282e;
+    --mono:'SFMono-Regular',ui-monospace,Menlo,Consolas,'Liberation Mono',monospace;
+    --sans:Verdana,-apple-system,'Segoe UI',Arial,sans-serif;
+  }
+  [data-theme="light"]{
+    --bg:#ffffff;
+    --panel:#f7f8fa;
+    --panel2:#f0f2f5;
+    --line:#dde1e7;
+    --line2:#c8cfd8;
+    --text:#1e2833;
+    --muted:#5b6672;
+    --faint:#8b95a1;
+    --link:#1a63c4;
+    --link-vis:#4a80c9;
+    --hi:#b07708;
+    --ok:#1e8a52;
+    --amber-bg:#fdf3dd;
+    --amber-ln:#dcb763;
+    --row-hover:#eef2f7;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:14px;line-height:1.6}
+  a{color:var(--link);text-decoration:none}
+  a:hover{text-decoration:underline;text-underline-offset:2px}
+  .wrap{max-width:1500px;margin:0 auto;padding:0 24px}
+  b{color:var(--text)}
+
+  /* ── top bar ─────────────────────────────── */
+  .topbar{border-bottom:1px solid var(--line);background:var(--panel)}
+  .topbar-in{max-width:1500px;margin:0 auto;padding:10px 24px;display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+  [data-theme="dark"] .topbar{background:#16181c}
+  .logo{font-family:var(--mono);font-weight:700;font-size:16px;color:var(--text);letter-spacing:.02em;white-space:nowrap}
+  .logo .cur{color:var(--hi);animation:blink 1.1s steps(1) infinite}
+  @keyframes blink{50%{opacity:0}}
+  .indexed{font-family:var(--mono);font-size:10.5px;color:var(--faint);letter-spacing:.08em;text-transform:uppercase;border-left:1px solid var(--line2);padding-left:14px;white-space:nowrap}
+  .topnav{display:flex;gap:16px;flex-wrap:wrap;margin-left:auto;align-items:center}
+  .topnav a{font-size:12.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
+  .topnav a:hover{color:var(--link);text-decoration:none}
+  .theme-btn{font-family:var(--mono);font-size:11px;color:var(--muted);background:none;border:1px solid var(--line2);border-radius:3px;padding:4px 10px;cursor:pointer;letter-spacing:.05em}
+  .theme-btn:hover{color:var(--text);border-color:var(--faint)}
+
+  /* ── breadcrumb ──────────────────────────── */
+  .crumbs{font-family:var(--mono);font-size:11.5px;color:var(--faint);padding:12px 0}
+  .crumbs a{color:var(--muted)}
+  .crumbs .sep{margin:0 7px;color:var(--line2)}
+
+  /* ── hero / description block ────────────── */
+  .hero{border:1px solid var(--line);background:var(--panel);padding:26px 28px;margin-bottom:22px}
+  h1{font-size:22px;font-weight:700;letter-spacing:-.01em;margin-bottom:8px}
+  h1 .accent{color:var(--hi)}
+  .hero p{color:var(--muted);max-width:62em;font-size:13.5px}
+  .hero p strong{color:var(--text)}
+  .meta-row{font-family:var(--mono);font-size:11.5px;color:var(--faint);margin-top:14px;display:flex;gap:18px;flex-wrap:wrap}
+  .meta-row span b{color:var(--ok);font-weight:600}
+  .hero-links{margin-top:16px;display:flex;gap:10px;flex-wrap:wrap}
+  .hbtn{font-family:var(--mono);font-size:12px;padding:7px 14px;border:1px solid var(--line2);color:var(--text);background:var(--panel2)}
+  .hbtn:hover{border-color:var(--link);color:var(--link);text-decoration:none}
+  .hbtn.primary{background:var(--link);border-color:var(--link);color:#fff;font-weight:700}
+  [data-theme="dark"] .hbtn.primary{color:#0d1117}
+  .hbtn.primary:hover{filter:brightness(1.1);text-decoration:none}
+
+  /* ── section headers ─────────────────────── */
+  .sec-h{font-family:var(--mono);font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--text);border-bottom:2px solid var(--line2);padding-bottom:7px;margin:38px 0 4px;display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px}
+  .sec-h .cnt{color:var(--faint);font-weight:400;font-size:11px}
+  .sec-note{font-size:12px;color:var(--faint);margin:6px 0 14px}
+
+  /* ── filter pills ────────────────────────── */
+  .filters{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0 14px;align-items:center}
+  .filters .fl{font-family:var(--mono);font-size:10.5px;color:var(--faint);letter-spacing:.08em;text-transform:uppercase;margin-right:4px}
+  .pill{font-family:var(--mono);font-size:11.5px;padding:4px 12px;border:1px solid var(--line2);border-radius:20px;color:var(--muted);background:var(--panel);cursor:pointer;user-select:none}
+  .pill:hover{color:var(--link);border-color:var(--link)}
+  .pill.on{color:var(--hi);border-color:var(--hi);background:var(--amber-bg)}
+
+  /* ── data table ──────────────────────────── */
+  .tbl-wrap{border:1px solid var(--line);overflow-x:auto;background:var(--panel)}
+  table{width:100%;border-collapse:collapse;font-size:13px;min-width:620px}
+  thead th{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);text-align:left;padding:9px 14px;border-bottom:2px solid var(--line2);background:var(--panel2);white-space:nowrap}
+  tbody td{padding:11px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+  tbody tr:last-child td{border-bottom:none}
+  tbody tr:hover{background:var(--row-hover)}
+  td .name{font-weight:700;color:var(--text)}
+  td .name a{color:var(--link)}
+  td .sub{font-size:12px;color:var(--faint);margin-top:2px}
+  .badge{display:inline-block;font-family:var(--mono);font-size:10px;letter-spacing:.05em;padding:2px 8px;border:1px solid var(--line2);border-radius:3px;color:var(--muted);white-space:nowrap}
+  .badge.prod{color:var(--ok);border-color:var(--ok)}
+  .badge.pers{color:var(--hi);border-color:var(--hi)}
+  td.stack{font-family:var(--mono);font-size:11.5px;color:var(--muted);max-width:260px}
+
+  .legend{font-family:var(--mono);font-size:11px;color:var(--faint);margin-top:8px}
+  .legend .d1{color:var(--ok)} .legend .d2{color:var(--hi)}
+
+  /* ── accordion rows ──────────────────────── */
+  tr.sys{cursor:pointer}
+  tr.sys.on .name{color:var(--hi)}
+  .exp{font-family:var(--mono);font-size:13px;color:var(--link);display:inline-block;transition:transform .28s ease,color .2s ease}
+  tr.sys.on .exp{transform:rotate(180deg);color:var(--hi)}
+  tr.sys:focus-visible{outline:1px solid var(--hi);outline-offset:-1px}
+  tr.sys>td, tr.drawer>td{transition:box-shadow .25s ease,background-color .25s ease}
+
+  /* drawer row: collapsed to zero height, no border, until opened */
+  tr.drawer>td{padding:0;border-bottom:none;background:var(--panel2)}
+  .dw{max-height:0;overflow:hidden;transition:max-height .3s ease}
+  .dw-in{padding:15px 20px 17px}
+
+  /* an expanded row + its drawer read as ONE amber-bordered box.
+     Inset shadows, not real borders, so nothing shifts when it opens:
+     header row draws the top + its own left/right, drawer draws left/right + bottom. */
+  tr.sys.on>td{box-shadow:inset 0 2px 0 var(--hi);border-bottom-color:var(--amber-ln)}
+  tr.sys.on>td:first-child{box-shadow:inset 0 2px 0 var(--hi),inset 2px 0 0 var(--hi)}
+  tr.sys.on>td:last-child{box-shadow:inset 0 2px 0 var(--hi),inset -2px 0 0 var(--hi)}
+  tr.drawer.open>td{box-shadow:inset 2px 0 0 var(--hi),inset -2px 0 0 var(--hi),inset 0 -2px 0 var(--hi)}
+  .dw-in .role{font-family:var(--mono);font-size:10.5px;color:var(--faint);text-transform:uppercase;letter-spacing:.08em}
+  .dw-in p{color:var(--muted);font-size:13.5px;margin-top:7px;max-width:74em}
+  .dw-in ul{margin:10px 0 0 18px;color:var(--muted);font-size:13.5px}
+  .dw-in li{margin-bottom:6px}
+  .dw-in li::marker{color:var(--hi)}
+  .dlinks{margin-top:10px;font-family:var(--mono);font-size:12px}
+  .dlinks a{margin-right:16px}
+
+  /* ── writing table rows ──────────────────── */
+  .wr td:first-child{min-width:300px}
+
+  /* ── skills ──────────────────────────────── */
+  .chips{display:flex;gap:7px;flex-wrap:wrap;margin:10px 0 4px}
+  .chip{font-family:var(--mono);font-size:11.5px;color:var(--muted);background:var(--panel);border:1px solid var(--line2);padding:4px 11px}
+  .sg-label{font-family:var(--mono);font-size:10.5px;color:var(--faint);letter-spacing:.08em;text-transform:uppercase;margin-top:14px}
+
+  /* ── two-column layout (ansh.site-style sidebar) ── */
+  .layout{display:grid;grid-template-columns:280px minmax(0,1fr) 300px;gap:24px;align-items:start;margin-top:8px}
+  @media(max-width:1250px){
+    .layout{grid-template-columns:280px minmax(0,1fr)}
+    .side-r{grid-column:1 / -1;position:static;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;align-items:start}
+  }
+  .side{position:sticky;top:14px;display:flex;flex-direction:column;gap:14px}
+  /* right column scrolls with the page — sticky would pin it and make
+     #writing / #skills impossible to bring into the middle of the viewport */
+  .side-r{position:static}
+  .side-panel{border:1px solid var(--line);background:var(--panel);padding:16px 18px}
+  .tree-h{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.1em;color:var(--hi);text-transform:lowercase;margin-bottom:8px}
+  .tree-file{font-family:var(--mono);font-size:12px;color:var(--link);margin-bottom:10px}
+  .tree-file .br{color:var(--faint)}
+  .side .when{font-family:var(--mono);font-size:10.5px;color:var(--faint);text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px}
+  .side h3{font-size:14px;font-weight:700;margin-bottom:8px}
+  .side p, .side li{font-size:12.5px;color:var(--muted);line-height:1.6}
+  .side ul{margin:6px 0 0 16px}
+  .side li{margin-bottom:6px}
+  .side li::marker{color:var(--hi)}
+  .side .stack-line{font-family:var(--mono);font-size:11px;color:var(--faint);margin-top:10px;border-top:1px dashed var(--line2);padding-top:8px}
+  .side .tree-links{font-family:var(--mono);font-size:12px;line-height:2}
+  .side .tree-links .br{color:var(--faint);margin-right:6px}
+  .side .wr-item{display:block;margin-bottom:12px;padding-bottom:12px;border-bottom:1px dashed var(--line)}
+  .side .wr-item:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
+  .side .wr-item .t{font-size:12.5px;font-weight:700;color:var(--link);line-height:1.45}
+  .side .wr-item .m{font-family:var(--mono);font-size:10.5px;color:var(--faint);margin-top:3px;text-transform:uppercase;letter-spacing:.05em}
+  .side .wr-item:hover{text-decoration:none}
+  .side .wr-item:hover .t{text-decoration:underline;text-underline-offset:2px}
+  .side .chips{margin:4px 0 2px}
+  .side .chip{font-size:10.5px;padding:3px 8px}
+  .side .sg-label{margin-top:10px;font-size:10px}
+  .side .status-line{font-family:var(--mono);font-size:11.5px;color:var(--muted);line-height:1.9}
+  .side .status-line .dot{color:var(--ok)}
+  .side .status-line b{color:var(--text);font-weight:600}
+  @media(max-width:900px){ .layout{grid-template-columns:1fr} .side{position:static} }
+
+  /* ── nav target highlight (topbar links) ─── */
+  /* border + edge bar only, no fill — matches the accordion box */
+  .sec-h, .side-panel, .contact{scroll-margin-top:20px;transition:border-color .25s ease,box-shadow .25s ease,color .25s ease}
+  .side-panel.hl-sec, .contact.hl-sec{border-color:var(--hi);box-shadow:inset 3px 0 0 var(--hi),0 0 0 1px var(--amber-ln)}
+  .sec-h.hl-sec{color:var(--hi);border-bottom-color:var(--hi)}
+  .topnav a.on{color:var(--hi)}
+
+  /* ── contact ─────────────────────────────── */
+  .contact{border:1px solid var(--line2);background:var(--panel2);padding:28px;margin:38px 0 0;text-align:center}
+  .contact h3{font-size:17px;margin-bottom:8px}
+  .contact p{color:var(--muted);font-size:13.5px;max-width:52em;margin:0 auto 18px}
+
+  footer{border-top:1px solid var(--line);margin-top:40px;padding:18px 0 26px}
+  footer .wrap{font-family:var(--mono);font-size:11px;color:var(--faint);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+
+  @media(max-width:640px){ .indexed{display:none} .hero{padding:20px} }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-in">
+    <div class="logo">LAKSHAY.SINGH<span class="cur">▮</span></div>
+    <div class="indexed">AI ENGINEER · AGENTS / RAG / VOICE · GURUGRAM → REMOTE (WORLDWIDE)</div>
+    <div class="topnav">
+      <a href="#systems">Systems</a>
+      <a href="#experience">Experience</a>
+      <a href="#writing">Writing</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+      <button class="theme-btn" id="themeToggle" aria-label="Toggle theme">◐ DARK</button>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="crumbs"><a href="#">/</a><span class="sep">»</span><a href="#">portfolio</a><span class="sep">»</span>All LLM Systems</div>
+
+  <div class="hero">
+    <h1>I build LLM systems — <span class="accent">and the models underneath them.</span></h1>
+    <p>Two years shipping <strong>multi-agent platforms on LangGraph</strong>, <strong>RAG with per-answer source provenance</strong>, and <strong>text-to-speech engines built from scratch in PyTorch</strong> — with the FastAPI backends, CI/CD. Plus <strong>reverse engineering of systems</strong>, <strong>making prototypes</strong>, and <strong>delivering work at fast pace</strong>.</p>
+    <div class="meta-row">
+      <span>LOCATION: <b>GURUGRAM, IN (IST)</b></span>
+      <span>REMOTE: <b>WORLDWIDE</b></span>
+      <span>US-ET OVERLAP: <b>4+ HRS</b></span>
+      <span>CONTRACT/EOR: <b>READY (DEEL / REMOTE.COM)</b></span>
+    </div>
+    <div class="hero-links">
+      <a class="hbtn primary" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;tf=1&amp;to=lakshay.singh1@gmail.com" target="_blank" rel="noopener">✉ EMAIL</a>
+      <a class="hbtn" href="https://github.com/1lakshay?tab=repositories" target="_blank" rel="noopener">GITHUB</a>
+      <a class="hbtn" href="https://www.linkedin.com/in/lakshay-singh-521l/" target="_blank" rel="noopener">LINKEDIN</a>
+      <a class="hbtn" href="https://medium.com/@lakshay.singh1" target="_blank" rel="noopener">MEDIUM</a>
+      <a class="hbtn" href="https://leetcode.com/u/Lakshay1201/" target="_blank" rel="noopener">LEETCODE</a>
+      <a class="hbtn" href="https://huggingface.co/Lakshay1201/spaces" target="_blank" rel="noopener">HF SPACES</a>
+      <a class="hbtn" href="https://drive.google.com/file/d/1yadd-DYlmLqS4Sg5_PuQT50mqwIiVJQd/view?usp=sharing" target="_blank" rel="noopener">RESUME</a>
+    </div>
+  </div>
+
+  <div class="layout">
+
+  <!-- ══ SIDEBAR (experience) ══ -->
+  <aside class="side" id="experience">
+    <div class="side-panel">
+      <div class="tree-h">experience/</div>
+      <div class="tree-file"><span class="br">└─</span> wasserstoff.md</div>
+      <div class="when">Nov 2024 — Present · Gurugram, IN</div>
+      <h3>AI Engineer · Wasserstoff</h3>
+      <ul>
+        <li>Own end-to-end delivery of LLM products — architecture, agent orchestration, backend APIs, CI/CD, and deployment.</li>
+        <li>Domains: legal AI, recruitment, RAG, browser automation, speech synthesis.</li>
+      </ul>
+      <div class="stack-line">stack: python · pytorch · langgraph · langchain · fastapi · vector dbs · jenkins</div>
+    </div>
+    <div class="side-panel">
+      <div class="tree-h">education/</div>
+      <div class="tree-file"><span class="br">└─</span> srm-university.md</div>
+      <p>MCA — CGPA 8.3<br>BSc Computer Science — CGPA 8.5<br><span style="color:var(--faint)">SRM University Delhi-NCR</span></p>
+    </div>
+    <div class="side-panel">
+      <div class="tree-h">links/</div>
+      <div class="tree-links">
+        <span class="br">├─</span><a href="https://github.com/1lakshay?tab=repositories" target="_blank" rel="noopener">github</a><br>
+        <span class="br">├─</span><a href="https://www.linkedin.com/in/lakshay-singh-521l/" target="_blank" rel="noopener">linkedin</a><br>
+        <span class="br">├─</span><a href="https://medium.com/@lakshay.singh1" target="_blank" rel="noopener">medium</a><br>
+        <span class="br">├─</span><a href="https://leetcode.com/u/Lakshay1201/" target="_blank" rel="noopener">leetcode</a><br>
+        <span class="br">├─</span><a href="https://huggingface.co/Lakshay1201/spaces" target="_blank" rel="noopener">hf spaces</a><br>
+        <span class="br">├─</span><a href="https://drive.google.com/file/d/1yadd-DYlmLqS4Sg5_PuQT50mqwIiVJQd/view?usp=sharing" target="_blank" rel="noopener">resume</a><br>
+        <span class="br">└─</span><a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;tf=1&amp;to=lakshay.singh1@gmail.com" target="_blank" rel="noopener">email</a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ══ MAIN ══ -->
+  <main class="main">
+
+  <!-- ══ SYSTEMS INDEX ══ -->
+  <div class="sec-h" id="systems" style="margin-top:0">Systems Index <span class="cnt">// built &amp; shipped end-to-end</span></div>
+
+  <div class="filters">
+    <span class="fl">Global filters:</span>
+    <span class="pill on" data-f="all">All</span>
+    <span class="pill" data-f="agents">Agentic Systems</span>
+    <span class="pill" data-f="rag">RAG / Retrieval</span>
+    <span class="pill" data-f="voice">Voice / Speech</span>
+    <span class="pill" data-f="tools">Dev Tools</span>
+  </div>
+
+  <div class="tbl-wrap">
+    <table id="sysTable">
+      <thead>
+        <tr><th>System</th><th>Domain</th><th>Stack</th><th>Type</th><th>Detail</th></tr>
+      </thead>
+      <tbody>
+        <tr class="sys" data-cat="agents rag">
+          <td><div class="name">LITT — AI Legal Associate</div><div class="sub">deep-agent drafting platform, 100+ docs/session</div></td>
+          <td>Legal AI · Agents</td>
+          <td class="stack">LangGraph · SSE · FastAPI · Jenkins</td>
+          <td><span class="badge prod">WORK</span></td>
+          <td><span class="exp">▾</span></td>
+        </tr>
+        <tr class="drawer" data-cat="agents rag"><td colspan="5"><div class="dw"><div class="dw-in">
+          <div class="role">Wasserstoff · Legal AI</div>
+          <p>A deep-agent legal drafting platform: retrieval → drafting → citation → revision pipeline with real-time SSE streaming, built on LangGraph.</p>
+          <ul>
+            <li>Designed a <b>hybrid virtual filesystem backed by a database</b>, letting agents operate across <b>100+ documents per session</b> without context overflow.</li>
+            <li>Multi-turn drafting workflows with automated deployment via <b>Jenkins CI/CD</b>.</li>
+          </ul>
+        </div></div></td></tr>
+
+        <tr class="sys" data-cat="voice">
+          <td><div class="name">Non-Autoregressive TTS Engine</div><div class="sub">from scratch — acoustic transformer → HiFi-GAN</div></td>
+          <td>Speech Synthesis</td>
+          <td class="stack">PyTorch · MFA · HiFi-GAN</td>
+          <td><span class="badge prod">WORK</span></td>
+          <td><span class="exp">▾</span></td>
+        </tr>
+        <tr class="drawer" data-cat="voice"><td colspan="5"><div class="dw"><div class="dw-in">
+          <div class="role">Wasserstoff · PyTorch · Speech</div>
+          <p>A complete mel-spectrogram TTS system with no pretrained shortcuts: custom acoustic transformer (encoder–decoder, duration predictor, length regulator), Montreal Forced Aligner preprocessing for phoneme–duration alignment, seconds-to-mel-frame conversion, token–duration mismatch resolution, and HiFi-GAN vocoding.</p>
+          <div class="dlinks"><a href="https://huggingface.co/spaces/Lakshay1201/mel-spectrogram-tts-from-scratch" target="_blank" rel="noopener">→ demo on HF Spaces</a></div>
+        </div></div></td></tr>
+
+        <tr class="sys" data-cat="agents">
+          <td><div class="name">Multi-Agent Recruitment Platform</div><div class="sub">intent routing → 4 specialized agent nodes</div></td>
+          <td>HR Tech · Agents</td>
+          <td class="stack">LangGraph · Pydantic · FastAPI</td>
+          <td><span class="badge prod">WORK</span></td>
+          <td><span class="exp">▾</span></td>
+        </tr>
+        <tr class="drawer" data-cat="agents"><td colspan="5"><div class="dw"><div class="dw-in">
+          <div class="role">Wasserstoff · Agents</div>
+          <p>An AI-driven hiring platform with a LangGraph routing layer that classifies user intent and dispatches to four specialized agent nodes — JD generation, resume parsing, database query, and general assistant — using structured Pydantic output for <b>deterministic routing</b>, with FastAPI backend APIs powering the full hiring workflow.</p>
+        </div></div></td></tr>
+
+        <tr class="sys" data-cat="rag">
+          <td><div class="name">RAG Chatbot w/ Source Provenance</div><div class="sub">every answer links to its exact source page</div></td>
+          <td>RAG · Retrieval</td>
+          <td class="stack">Vector DB · Embeddings · FastAPI</td>
+          <td><span class="badge prod">CLIENT</span></td>
+          <td><span class="exp">▾</span></td>
+        </tr>
+        <tr class="drawer" data-cat="rag"><td colspan="5"><div class="dw"><div class="dw-in">
+          <div class="role">Client Project · RAG</div>
+          <p>A website RAG chatbot where <b>every retrieved chunk carries its source page</b>: URL-aware chunking plus a chunk-to-URL mapping layer, so users jump directly to the exact webpage alongside the LLM's answer. Integrated FastAPI backend and frontend.</p>
+        </div></div></td></tr>
+
+        <tr class="sys" data-cat="agents">
+          <td><div class="name">VLM Browser Automation Agent</div><div class="sub">screenshot annotation → VLM → native action</div></td>
+          <td>Computer Use</td>
+          <td class="stack">Gemini · Playwright · PyAutoGUI</td>
+          <td><span class="badge prod">WORK</span></td>
+          <td><span class="exp">▾</span></td>
+        </tr>
+        <tr class="drawer" data-cat="agents"><td colspan="5"><div class="dw"><div class="dw-in">
+          <div class="role">Wasserstoff · From Scratch · Computer Use</div>
+          <p>An agent that annotates live screenshots with numbered bounding boxes over DOM-extracted interactive elements, sends the annotated image to a VLM (Gemini) to identify the target element by index, and executes the action via PyAutoGUI — including <b>DPI-aware coordinate mapping</b> between the Playwright viewport and physical screen space.</p>
+        </div></div></td></tr>
+
+        <tr class="sys" data-cat="voice">
+          <td><div class="name">RVQ Neural Speech Prototype</div><div class="sub">codebook balancing, exposure bias, flux loss</div></td>
+          <td>Speech · Research</td>
+          <td class="stack">PyTorch · EnCodec · HF Spaces</td>
+          <td><span class="badge pers">PERSONAL</span></td>
+          <td><span class="exp">▾</span></td>
+        </tr>
+        <tr class="drawer" data-cat="voice"><td colspan="5"><div class="dw"><div class="dw-in">
+          <div class="role">Personal · Research Prototype · Speech</div>
+          <p>An RVQ-based neural speech synthesis pipeline: investigated inter-codebook balancing and exposure bias in autoregressive token prediction, experimented with flux loss for codebook utilization, and iteratively debugged generation artifacts.</p>
+          <div class="dlinks"><a href="https://huggingface.co/spaces/Lakshay1201/rvq-voice-demo" target="_blank" rel="noopener">→ demo on HF Spaces</a></div>
+        </div></div></td></tr>
+
+        <tr class="sys" data-cat="tools">
+          <td><div class="name">TheCodePulse</div><div class="sub">VS Code extension — breaking-change detection for Python</div></td>
+          <td>Dev Tools</td>
+          <td class="stack">TypeScript · Python AST</td>
+          <td><span class="badge pers">PUBLISHED</span></td>
+          <td><span class="exp">▾</span></td>
+        </tr>
+        <tr class="drawer" data-cat="tools"><td colspan="5"><div class="dw"><div class="dw-in">
+          <div class="role">Personal · Published · Dev Tools</div>
+          <p>Detects non-cosmetic logic changes in Python functions and instantly surfaces all dependent callers — eliminating silent runtime crashes in large codebases where Python and VS Code both fail to warn that a modified shared function breaks its callers.</p>
+          <div class="dlinks"><a href="https://github.com/1lakshay/CodePulse" target="_blank" rel="noopener">→ source</a><a href="https://marketplace.visualstudio.com/items?itemName=Lakshay.thecodepulse" target="_blank" rel="noopener">→ marketplace</a></div>
+        </div></div></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="legend">LEGEND: <span class="d1">WORK / CLIENT</span> — built &amp; shipped at Wasserstoff or for clients &nbsp;·&nbsp; <span class="d2">PERSONAL / PUBLISHED</span> — independent work, public</div>
+
+  </main>
+
+  <!-- ══ RIGHT SIDEBAR ══ -->
+  <aside class="side side-r">
+    <div class="side-panel">
+      <div class="tree-h">status/</div>
+      <div class="status-line">
+        <span class="dot">●</span> OPEN TO: <b>GenAI / LLM roles</b><br>
+        <span class="dot">●</span> MODE: <b>remote · full-time / contract</b><br>
+        <span class="dot">●</span> TZ: <b>IST · 4+ hrs US-ET overlap</b><br>
+        <span class="dot">●</span> SETUP: <b>EOR / contractor-ready</b>
+      </div>
+    </div>
+    <div class="side-panel" id="writing">
+      <div class="tree-h">writing/</div>
+      <div class="tree-file"><span class="br">└─</span> speech-model-internals/</div>
+      <a class="wr-item" href="https://medium.com/@lakshay.singh1/how-i-built-a-tts-model-from-scratch-using-mel-spectrograms-and-pytorch-ef16bdd1cee9" target="_blank" rel="noopener">
+        <span class="t">How I Built a TTS Model from Scratch Using Mel Spectrograms and PyTorch</span>
+        <span class="m">medium · jun 2026 · tts architecture</span>
+      </a>
+      <a class="wr-item" href="https://medium.com/@lakshay.singh1/revisiting-attention-38fc8559a317" target="_blank" rel="noopener">
+        <span class="t">Revisiting Attention</span>
+        <span class="m">medium · may 2026 · architecture</span>
+      </a>
+      <a class="wr-item" href="https://medium.com/@lakshay.singh1/what-i-learned-from-the-mars6-paper-and-why-i-read-it-for-my-codebook-collapse-problem-27668907a486" target="_blank" rel="noopener">
+        <span class="t">What I Learned from the MARS6 Paper (For My Codebook Collapse Problem)</span>
+        <span class="m">medium · mar 2026 · neural codecs</span>
+      </a>
+      <a class="wr-item" href="https://medium.com/@lakshay.singh1/how-supertonic-tts-achieves-lightning-fast-inference-a-deep-dive-into-convnext-and-flow-matching-502bbacf8c86" target="_blank" rel="noopener">
+        <span class="t">How Supertonic TTS Achieves Lightning-Fast Inference</span>
+        <span class="m">medium · jan 2026 · inference</span>
+      </a>
+    </div>
+    <div class="side-panel" id="skills">
+      <div class="tree-h">skills/</div>
+      <div class="sg-label"># ai / ml</div>
+      <div class="chips"><span class="chip">LLMs</span><span class="chip">RAG</span><span class="chip">Agentic AI</span><span class="chip">LangGraph</span><span class="chip">LangChain</span><span class="chip">Multi-Agent Systems</span><span class="chip">PyTorch</span><span class="chip">Transformers</span><span class="chip">Fine-Tuning</span><span class="chip">Prompt Engineering</span><span class="chip">LLM Evaluation</span><span class="chip">Vector Databases</span><span class="chip">Embeddings</span><span class="chip">TTS / Speech Synthesis</span><span class="chip">VLMs</span><span class="chip">Hugging Face</span></div>
+      <div class="sg-label"># engineering</div>
+      <div class="chips"><span class="chip">Python</span><span class="chip">FastAPI</span><span class="chip">API Design</span><span class="chip">Microservices</span><span class="chip">SSE / Streaming</span><span class="chip">PostgreSQL</span><span class="chip">Jenkins</span><span class="chip">CI/CD</span><span class="chip">Git</span><span class="chip">Playwright</span></div>
+    </div>
+  </aside>
+
+  </div><!-- /.layout -->
+
+  <!-- ══ CONTACT ══ -->
+  <div class="contact" id="contact">
+    <h3>Open to remote GenAI / LLM engineer roles</h3>
+    <p>Full-time or contract-to-hire. Based in India (IST), async-first with 4+ hours of US-ET overlap, already set up for contractor or EOR arrangements (Deel / Remote.com). If you're building with agents, RAG, or voice — let's talk.</p>
+    <div class="hero-links" style="justify-content:center">
+      <a class="hbtn primary" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;tf=1&amp;to=lakshay.singh1@gmail.com" target="_blank" rel="noopener">✉ LAKSHAY.SINGH1@GMAIL.COM</a>
+      <a class="hbtn" href="https://www.linkedin.com/in/lakshay-singh-521l/" target="_blank" rel="noopener">LINKEDIN</a>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 LAKSHAY SINGH</span>
+    <span>NO TRACKERS · NO COOKIES · SINGLE HTML FILE</span>
+  </div>
+</footer>
+
+<script>
+  // filter pills
+  (function(){
+    var pills = document.querySelectorAll('.pill');
+    var rows = document.querySelectorAll('#sysTable tbody tr');
+    var details = {agents:[], rag:[], voice:[], tools:[]};
+    pills.forEach(function(p){
+      p.addEventListener('click', function(){
+        pills.forEach(function(q){ q.classList.remove('on'); });
+        p.classList.add('on');
+        var f = p.getAttribute('data-f');
+        rows.forEach(function(r){
+          var show = (f === 'all' || (r.getAttribute('data-cat')||'').split(' ').indexOf(f) > -1);
+          r.style.display = show ? '' : 'none';
+          // drop the highlight if the row it belongs to just got filtered out
+          if (!show && r.classList.contains('on')) { clearFocus(); }
+        });
+      });
+    });
+  })();
+
+  // systems index → accordion: one row open at a time, closes on re-click / outside click / Esc
+  function clearFocus(){
+    document.querySelectorAll('#sysTable tr.sys.on').forEach(function(r){
+      r.classList.remove('on');
+      r.setAttribute('aria-expanded', 'false');
+    });
+    document.querySelectorAll('#sysTable tr.drawer.open').forEach(function(d){
+      d.querySelector('.dw').style.maxHeight = '';   // animate back to 0 via CSS
+      d.classList.remove('open');
+    });
+  }
+  (function(){
+    var rows = document.querySelectorAll('#sysTable tr.sys');
+
+    function toggle(row){
+      var drawer = row.nextElementSibling;
+      if (!drawer || !drawer.classList.contains('drawer')) return;
+      var wasOpen = drawer.classList.contains('open');
+      clearFocus();
+      if (wasOpen) return;                            // re-click just collapses
+      var body = drawer.querySelector('.dw');
+      drawer.classList.add('open');
+      row.classList.add('on');
+      row.setAttribute('aria-expanded', 'true');
+      // measure the content so the transition ends at its true height
+      body.style.maxHeight = body.scrollHeight + 'px';
+    }
+
+    rows.forEach(function(row){
+      row.setAttribute('tabindex', '0');
+      row.setAttribute('role', 'button');
+      row.setAttribute('aria-expanded', 'false');
+      row.addEventListener('click', function(e){
+        var a = e.target.closest('a');
+        if (a) return;                                // never swallow a link click
+        toggle(row);
+      });
+      row.addEventListener('keydown', function(e){
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(row); }
+      });
+    });
+
+    // a click anywhere outside the table collapses whatever is open
+    document.addEventListener('click', function(e){
+      if (!e.target.closest('#sysTable')) clearFocus();
+    });
+    document.addEventListener('keydown', function(e){
+      if (e.key === 'Escape') clearFocus();
+    });
+    // keep the open drawer's height correct when the layout reflows
+    window.addEventListener('resize', function(){
+      var open = document.querySelector('#sysTable tr.drawer.open .dw');
+      if (open) open.style.maxHeight = open.scrollHeight + 'px';
+    });
+  })();
+  // topbar nav → scroll to the section and highlight it until something else is clicked
+  (function(){
+    var links = document.querySelectorAll('.topnav a[href^="#"]');
+
+    // #experience is the whole 3-panel sidebar — highlight just the experience panel
+    function panelFor(hash){
+      var el = document.querySelector(hash);
+      if (!el) return null;
+      return el.tagName === 'ASIDE' ? el.querySelector('.side-panel') : el;
+    }
+    // A nav click scrolls the page itself, so scroll-to-dismiss can only be armed
+    // once that smooth scroll has settled — otherwise it would cancel its own highlight.
+    var armed = false, settleT = null;
+    function onSettleScroll(){
+      clearTimeout(settleT);
+      settleT = setTimeout(finishSettle, 180);
+    }
+    function finishSettle(){
+      window.removeEventListener('scroll', onSettleScroll);
+      armed = true;                       // from here on, a user scroll dismisses
+    }
+    function armAfterSettle(){
+      armed = false;
+      clearTimeout(settleT);
+      window.removeEventListener('scroll', onSettleScroll);
+      window.addEventListener('scroll', onSettleScroll, {passive:true});
+      settleT = setTimeout(finishSettle, 180);   // fires if the target was already in view
+    }
+
+    function clearSection(){
+      armed = false;
+      clearTimeout(settleT);
+      window.removeEventListener('scroll', onSettleScroll);
+      document.querySelectorAll('.hl-sec').forEach(function(s){ s.classList.remove('hl-sec'); });
+      document.querySelectorAll('.topnav a.on').forEach(function(a){ a.classList.remove('on'); });
+    }
+    function focusSection(hash){
+      var el = panelFor(hash);
+      if (!el) return;
+      clearSection();
+      el.classList.add('hl-sec');
+      links.forEach(function(a){ if (a.getAttribute('href') === hash) a.classList.add('on'); });
+      // panels land mid-viewport; a section header reads better anchored near the top
+      el.scrollIntoView({behavior:'smooth', block: el.classList.contains('sec-h') ? 'start' : 'center'});
+      armAfterSettle();
+    }
+    window.addEventListener('scroll', function(){
+      if (armed) clearSection();
+    }, {passive:true});
+    links.forEach(function(a){
+      a.addEventListener('click', function(e){
+        e.preventDefault();
+        focusSection(a.getAttribute('href'));
+      });
+    });
+    // clicking anything that isn't a topbar nav link drops the highlight
+    document.addEventListener('click', function(e){
+      if (!e.target.closest('.topnav a[href^="#"]')) clearSection();
+    });
+    document.addEventListener('keydown', function(e){
+      if (e.key === 'Escape') clearSection();
+    });
+    // honour a deep link like index.html#skills on first load
+    if (location.hash && document.querySelector('.topnav a[href="' + location.hash + '"]')) {
+      focusSection(location.hash);
+    }
+  })();
+
+  // theme toggle (in-memory only)
+  (function(){
+    var btn = document.getElementById('themeToggle');
+    var root = document.documentElement;
+    btn.addEventListener('click', function(){
+      var dark = root.getAttribute('data-theme') === 'dark';
+      root.setAttribute('data-theme', dark ? 'light' : 'dark');
+      btn.textContent = dark ? '◑ LIGHT' : '◐ DARK';
+    });
+  })();
+</script>
+
+</body>
+</html>
