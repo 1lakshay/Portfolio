@@ -145,8 +145,8 @@
   /* ── accordion rows ──────────────────────── */
   tr.sys{cursor:pointer}
   tr.sys.on .name{color:var(--hi)}
-  .exp{font-family:var(--mono);font-size:13px;color:var(--link);display:inline-block;transition:transform .28s ease,color .2s ease}
-  tr.sys.on .exp{transform:rotate(180deg);color:var(--hi)}
+  .exp{font-family:var(--mono);font-size:18px;line-height:1;color:var(--hi);display:inline-block;transition:transform .28s ease}
+  tr.sys.on .exp{transform:rotate(180deg)}
   tr.sys:focus-visible{outline:1px solid var(--hi);outline-offset:-1px}
   tr.sys>td, tr.drawer>td{transition:box-shadow .25s ease,background-color .25s ease}
 
@@ -249,11 +249,9 @@
     </div>
   </div>
 </div>
+<div style="margin: 20px;"></div>
 
 <div class="wrap">
-
-  <div class="crumbs"><a href="#">/</a><span class="sep">»</span><a href="#">portfolio</a><span class="sep">»</span>All LLM Systems</div>
-
   <div class="hero">
     <h1>I build LLM systems — <span class="accent">and the models underneath them.</span></h1>
     <p>Two years shipping <strong>multi-agent platforms on LangGraph</strong>, <strong>RAG with per-answer source provenance</strong>, and <strong>text-to-speech engines built from scratch in PyTorch</strong> — with the FastAPI backends, CI/CD. Plus <strong>reverse engineering of systems</strong>, <strong>making prototypes</strong>, and <strong>delivering work at fast pace</strong>.</p>
@@ -261,7 +259,6 @@
       <span>LOCATION: <b>GURUGRAM, IN (IST)</b></span>
       <span>REMOTE: <b>WORLDWIDE</b></span>
       <span>US-ET OVERLAP: <b>4+ HRS</b></span>
-      <span>CONTRACT/EOR: <b>READY (DEEL / REMOTE.COM)</b></span>
     </div>
     <div class="hero-links">
       <a class="hbtn primary" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;tf=1&amp;to=lakshay.singh1@gmail.com" target="_blank" rel="noopener">✉ EMAIL</a>
@@ -312,7 +309,7 @@
   <main class="main">
 
   <!-- ══ SYSTEMS INDEX ══ -->
-  <div class="sec-h" id="systems" style="margin-top:0">Systems Index <span class="cnt">// built &amp; shipped end-to-end</span></div>
+  <div class="sec-h" id="systems" style="margin-top:0">Systems Index</div>
 
   <div class="filters">
     <span class="fl">Global filters:</span>
