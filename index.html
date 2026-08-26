@@ -145,8 +145,6 @@
   /* ── accordion rows ──────────────────────── */
   tr.sys{cursor:pointer}
   tr.sys.on .name{color:var(--hi)}
-  .exp{font-family:var(--mono);font-size:18px;line-height:1;color:var(--hi);display:inline-block;transition:transform .28s ease}
-  tr.sys.on .exp{transform:rotate(180deg)}
   tr.sys:focus-visible{outline:1px solid var(--hi);outline-offset:-1px}
   tr.sys>td, tr.drawer>td{transition:box-shadow .25s ease,background-color .25s ease}
 
@@ -192,15 +190,12 @@
   .tree-h{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.1em;color:var(--hi);text-transform:lowercase;margin-bottom:8px}
   .tree-file{font-family:var(--mono);font-size:12px;color:var(--link);margin-bottom:10px}
   .tree-file .br{color:var(--faint)}
-  .side .when{font-family:var(--mono);font-size:10.5px;color:var(--faint);text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px}
+  .side .when{font-family:var(--mono);font-size:13px;color:var(--muted);letter-spacing:.02em;margin-top:2px}
   .side h3{font-size:14px;font-weight:700;margin-bottom:8px}
   .side p, .side li{font-size:12.5px;color:var(--muted);line-height:1.6}
   .side ul{margin:6px 0 0 16px}
   .side li{margin-bottom:6px}
   .side li::marker{color:var(--hi)}
-  .side .stack-line{font-family:var(--mono);font-size:11px;color:var(--faint);margin-top:10px;border-top:1px dashed var(--line2);padding-top:8px}
-  .side .tree-links{font-family:var(--mono);font-size:12px;line-height:2}
-  .side .tree-links .br{color:var(--faint);margin-right:6px}
   .side .wr-item{display:block;margin-bottom:12px;padding-bottom:12px;border-bottom:1px dashed var(--line)}
   .side .wr-item:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
   .side .wr-item .t{font-size:12.5px;font-weight:700;color:var(--link);line-height:1.45}
@@ -278,30 +273,15 @@
     <div class="side-panel">
       <div class="tree-h">experience/</div>
       <div class="tree-file"><span class="br">└─</span> wasserstoff.md</div>
-      <div class="when">Nov 2024 — Present · Gurugram, IN</div>
       <h3>AI Engineer · Wasserstoff</h3>
-      <ul>
-        <li>Own end-to-end delivery of LLM products — architecture, agent orchestration, backend APIs, CI/CD, and deployment.</li>
-        <li>Domains: legal AI, recruitment, RAG, browser automation, speech synthesis.</li>
-      </ul>
-      <div class="stack-line">stack: python · pytorch · langgraph · langchain · fastapi · vector dbs · jenkins</div>
+      <div class="when">Nov 2024 — Present</div>
     </div>
-    <div class="side-panel">
-      <div class="tree-h">education/</div>
-      <div class="tree-file"><span class="br">└─</span> srm-university.md</div>
-      <p>MCA — CGPA 8.3<br>BSc Computer Science — CGPA 8.5<br><span style="color:var(--faint)">SRM University Delhi-NCR</span></p>
-    </div>
-    <div class="side-panel">
-      <div class="tree-h">links/</div>
-      <div class="tree-links">
-        <span class="br">├─</span><a href="https://github.com/1lakshay?tab=repositories" target="_blank" rel="noopener">github</a><br>
-        <span class="br">├─</span><a href="https://www.linkedin.com/in/lakshay-singh-521l/" target="_blank" rel="noopener">linkedin</a><br>
-        <span class="br">├─</span><a href="https://medium.com/@lakshay.singh1" target="_blank" rel="noopener">medium</a><br>
-        <span class="br">├─</span><a href="https://leetcode.com/u/Lakshay1201/" target="_blank" rel="noopener">leetcode</a><br>
-        <span class="br">├─</span><a href="https://huggingface.co/Lakshay1201/spaces" target="_blank" rel="noopener">hf spaces</a><br>
-        <span class="br">├─</span><a href="https://drive.google.com/file/d/1yadd-DYlmLqS4Sg5_PuQT50mqwIiVJQd/view?usp=sharing" target="_blank" rel="noopener">resume</a><br>
-        <span class="br">└─</span><a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;tf=1&amp;to=lakshay.singh1@gmail.com" target="_blank" rel="noopener">email</a>
-      </div>
+    <div class="side-panel" id="skills">
+      <div class="tree-h">skills/</div>
+      <div class="sg-label"># ai / ml</div>
+      <div class="chips"><span class="chip">LLMs</span><span class="chip">RAG</span><span class="chip">Agentic AI</span><span class="chip">LangGraph</span><span class="chip">LangChain</span><span class="chip">Multi-Agent Systems</span><span class="chip">PyTorch</span><span class="chip">Transformers</span><span class="chip">Fine-Tuning</span><span class="chip">Prompt Engineering</span><span class="chip">LLM Evaluation</span><span class="chip">Vector Databases</span><span class="chip">Embeddings</span><span class="chip">TTS / Speech Synthesis</span><span class="chip">VLMs</span><span class="chip">Hugging Face</span></div>
+      <div class="sg-label"># engineering</div>
+      <div class="chips"><span class="chip">Python</span><span class="chip">FastAPI</span><span class="chip">API Design</span><span class="chip">Microservices</span><span class="chip">SSE / Streaming</span><span class="chip">PostgreSQL</span><span class="chip">Jenkins</span><span class="chip">CI/CD</span><span class="chip">Git</span><span class="chip">Playwright</span></div>
     </div>
   </aside>
 
@@ -323,7 +303,7 @@
   <div class="tbl-wrap">
     <table id="sysTable">
       <thead>
-        <tr><th>System</th><th>Domain</th><th>Stack</th><th>Type</th><th>Detail</th></tr>
+        <tr><th>System</th><th>Domain</th><th>Stack</th><th>Type</th></tr>
       </thead>
       <tbody>
         <tr class="sys" data-cat="agents rag">
@@ -331,9 +311,8 @@
           <td>Legal AI · Agents</td>
           <td class="stack">LangGraph · SSE · FastAPI · Jenkins</td>
           <td><span class="badge prod">WORK</span></td>
-          <td><span class="exp">▾</span></td>
         </tr>
-        <tr class="drawer" data-cat="agents rag"><td colspan="5"><div class="dw"><div class="dw-in">
+        <tr class="drawer" data-cat="agents rag"><td colspan="4"><div class="dw"><div class="dw-in">
           <div class="role">Wasserstoff · Legal AI</div>
           <p>A deep-agent legal drafting platform: retrieval → drafting → citation → revision pipeline with real-time SSE streaming, built on LangGraph.</p>
           <ul>
@@ -347,9 +326,8 @@
           <td>Speech Synthesis</td>
           <td class="stack">PyTorch · MFA · HiFi-GAN</td>
           <td><span class="badge prod">WORK</span></td>
-          <td><span class="exp">▾</span></td>
         </tr>
-        <tr class="drawer" data-cat="voice"><td colspan="5"><div class="dw"><div class="dw-in">
+        <tr class="drawer" data-cat="voice"><td colspan="4"><div class="dw"><div class="dw-in">
           <div class="role">Wasserstoff · PyTorch · Speech</div>
           <p>A complete mel-spectrogram TTS system with no pretrained shortcuts: custom acoustic transformer (encoder–decoder, duration predictor, length regulator), Montreal Forced Aligner preprocessing for phoneme–duration alignment, seconds-to-mel-frame conversion, token–duration mismatch resolution, and HiFi-GAN vocoding.</p>
           <div class="dlinks"><a href="https://huggingface.co/spaces/Lakshay1201/mel-spectrogram-tts-from-scratch" target="_blank" rel="noopener">→ demo on HF Spaces</a></div>
@@ -360,9 +338,8 @@
           <td>HR Tech · Agents</td>
           <td class="stack">LangGraph · Pydantic · FastAPI</td>
           <td><span class="badge prod">WORK</span></td>
-          <td><span class="exp">▾</span></td>
         </tr>
-        <tr class="drawer" data-cat="agents"><td colspan="5"><div class="dw"><div class="dw-in">
+        <tr class="drawer" data-cat="agents"><td colspan="4"><div class="dw"><div class="dw-in">
           <div class="role">Wasserstoff · Agents</div>
           <p>An AI-driven hiring platform with a LangGraph routing layer that classifies user intent and dispatches to four specialized agent nodes — JD generation, resume parsing, database query, and general assistant — using structured Pydantic output for <b>deterministic routing</b>, with FastAPI backend APIs powering the full hiring workflow.</p>
         </div></div></td></tr>
@@ -372,9 +349,8 @@
           <td>RAG · Retrieval</td>
           <td class="stack">Vector DB · Embeddings · FastAPI</td>
           <td><span class="badge prod">CLIENT</span></td>
-          <td><span class="exp">▾</span></td>
         </tr>
-        <tr class="drawer" data-cat="rag"><td colspan="5"><div class="dw"><div class="dw-in">
+        <tr class="drawer" data-cat="rag"><td colspan="4"><div class="dw"><div class="dw-in">
           <div class="role">Client Project · RAG</div>
           <p>A website RAG chatbot where <b>every retrieved chunk carries its source page</b>: URL-aware chunking plus a chunk-to-URL mapping layer, so users jump directly to the exact webpage alongside the LLM's answer. Integrated FastAPI backend and frontend.</p>
         </div></div></td></tr>
@@ -384,9 +360,8 @@
           <td>Computer Use</td>
           <td class="stack">Gemini · Playwright · PyAutoGUI</td>
           <td><span class="badge prod">WORK</span></td>
-          <td><span class="exp">▾</span></td>
         </tr>
-        <tr class="drawer" data-cat="agents"><td colspan="5"><div class="dw"><div class="dw-in">
+        <tr class="drawer" data-cat="agents"><td colspan="4"><div class="dw"><div class="dw-in">
           <div class="role">Wasserstoff · From Scratch · Computer Use</div>
           <p>An agent that annotates live screenshots with numbered bounding boxes over DOM-extracted interactive elements, sends the annotated image to a VLM (Gemini) to identify the target element by index, and executes the action via PyAutoGUI — including <b>DPI-aware coordinate mapping</b> between the Playwright viewport and physical screen space.</p>
         </div></div></td></tr>
@@ -396,9 +371,8 @@
           <td>Speech · Research</td>
           <td class="stack">PyTorch · EnCodec · HF Spaces</td>
           <td><span class="badge pers">PERSONAL</span></td>
-          <td><span class="exp">▾</span></td>
         </tr>
-        <tr class="drawer" data-cat="voice"><td colspan="5"><div class="dw"><div class="dw-in">
+        <tr class="drawer" data-cat="voice"><td colspan="4"><div class="dw"><div class="dw-in">
           <div class="role">Personal · Research Prototype · Speech</div>
           <p>An RVQ-based neural speech synthesis pipeline: investigated inter-codebook balancing and exposure bias in autoregressive token prediction, experimented with flux loss for codebook utilization, and iteratively debugged generation artifacts.</p>
           <div class="dlinks"><a href="https://huggingface.co/spaces/Lakshay1201/rvq-voice-demo" target="_blank" rel="noopener">→ demo on HF Spaces</a></div>
@@ -409,9 +383,8 @@
           <td>Dev Tools</td>
           <td class="stack">TypeScript · Python AST</td>
           <td><span class="badge pers">PUBLISHED</span></td>
-          <td><span class="exp">▾</span></td>
         </tr>
-        <tr class="drawer" data-cat="tools"><td colspan="5"><div class="dw"><div class="dw-in">
+        <tr class="drawer" data-cat="tools"><td colspan="4"><div class="dw"><div class="dw-in">
           <div class="role">Personal · Published · Dev Tools</div>
           <p>Detects non-cosmetic logic changes in Python functions and instantly surfaces all dependent callers — eliminating silent runtime crashes in large codebases where Python and VS Code both fail to warn that a modified shared function breaks its callers.</p>
           <div class="dlinks"><a href="https://github.com/1lakshay/CodePulse" target="_blank" rel="noopener">→ source</a><a href="https://marketplace.visualstudio.com/items?itemName=Lakshay.thecodepulse" target="_blank" rel="noopener">→ marketplace</a></div>
@@ -430,13 +403,16 @@
       <div class="status-line">
         <span class="dot">●</span> OPEN TO: <b>GenAI / LLM roles</b><br>
         <span class="dot">●</span> MODE: <b>remote · full-time / contract</b><br>
-        <span class="dot">●</span> TZ: <b>IST · 4+ hrs US-ET overlap</b><br>
-        <span class="dot">●</span> SETUP: <b>EOR / contractor-ready</b>
+        <span class="dot">●</span> TZ: <b>IST · 4+ hrs US-ET overlap</b>
       </div>
     </div>
     <div class="side-panel" id="writing">
       <div class="tree-h">writing/</div>
       <div class="tree-file"><span class="br">└─</span> speech-model-internals/</div>
+      <a class="wr-item" href="https://medium.com/@lakshay.singh1/pitch-predictors-energy-predictors-and-the-one-to-many-problem-in-tts-7a4d21836b88" target="_blank" rel="noopener">
+        <span class="t">Pitch Predictors, Energy Predictors, and the One-to-Many Problem in TTS</span>
+        <span class="m">medium · aug 2026 · tts prosody</span>
+      </a>
       <a class="wr-item" href="https://medium.com/@lakshay.singh1/how-i-built-a-tts-model-from-scratch-using-mel-spectrograms-and-pytorch-ef16bdd1cee9" target="_blank" rel="noopener">
         <span class="t">How I Built a TTS Model from Scratch Using Mel Spectrograms and PyTorch</span>
         <span class="m">medium · jun 2026 · tts architecture</span>
@@ -453,13 +429,6 @@
         <span class="t">How Supertonic TTS Achieves Lightning-Fast Inference</span>
         <span class="m">medium · jan 2026 · inference</span>
       </a>
-    </div>
-    <div class="side-panel" id="skills">
-      <div class="tree-h">skills/</div>
-      <div class="sg-label"># ai / ml</div>
-      <div class="chips"><span class="chip">LLMs</span><span class="chip">RAG</span><span class="chip">Agentic AI</span><span class="chip">LangGraph</span><span class="chip">LangChain</span><span class="chip">Multi-Agent Systems</span><span class="chip">PyTorch</span><span class="chip">Transformers</span><span class="chip">Fine-Tuning</span><span class="chip">Prompt Engineering</span><span class="chip">LLM Evaluation</span><span class="chip">Vector Databases</span><span class="chip">Embeddings</span><span class="chip">TTS / Speech Synthesis</span><span class="chip">VLMs</span><span class="chip">Hugging Face</span></div>
-      <div class="sg-label"># engineering</div>
-      <div class="chips"><span class="chip">Python</span><span class="chip">FastAPI</span><span class="chip">API Design</span><span class="chip">Microservices</span><span class="chip">SSE / Streaming</span><span class="chip">PostgreSQL</span><span class="chip">Jenkins</span><span class="chip">CI/CD</span><span class="chip">Git</span><span class="chip">Playwright</span></div>
     </div>
   </aside>
 
