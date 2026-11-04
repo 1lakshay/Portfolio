@@ -306,6 +306,20 @@
         <tr><th>System</th><th>Domain</th><th>Stack</th><th>Type</th></tr>
       </thead>
       <tbody>
+        <tr class="sys" data-cat="voice">
+          <td><div class="name">TTS model from Scratch (Kanth TTS)</div><div class="sub">emotion-aware Hindi · English · Hinglish, low-latency inference</div></td>
+          <td>Speech Synthesis</td>
+          <td class="stack">PyTorch · HiFi-GAN</td>
+          <td><span class="badge prod">WORK</span></td>
+        </tr>
+        <tr class="drawer" data-cat="voice"><td colspan="4"><div class="dw"><div class="dw-in">
+          <div class="role">Wasserstoff · PyTorch · Speech</div>
+          <p>Kanth TTS, a 75.6M-parameter, multilingual, emotion-aware TTS system supporting Hindi, English, and Hinglish, developed from scratch without relying on pretrained acoustic models. Features a custom non-autoregressive acoustic transformer architecture followed by HiFi-GAN neural vocoding.</p>
+          <p>Addressed key challenges in speech synthesis, including the one-to-many problem, phoneme–duration alignment, token–duration mismatches, and stable duration modelling.</p>
+          <p>Engineered model compression and inference optimization for efficient CPU deployment using INT8 quantization, reducing the model footprint from ~302 MB to ~109 MB, with approximately 83% of weights running in true INT8, while maintaining perceptually unchanged audio quality.</p>
+          <div class="dlinks"><a href="https://huggingface.co/spaces/Lakshay1201/next-iteration-of-mel-spect-tts" target="_blank" rel="noopener">→ Try it out Here</a></div>
+        </div></div></td></tr>
+
         <tr class="sys" data-cat="agents rag">
           <td><div class="name">LITT — AI Legal Associate</div><div class="sub">deep-agent drafting platform, 100+ docs/session</div></td>
           <td>Legal AI · Agents</td>
@@ -319,18 +333,6 @@
             <li>Designed a <b>hybrid virtual filesystem backed by a database</b>, letting agents operate across <b>100+ documents per session</b> without context overflow.</li>
             <li>Multi-turn drafting workflows with automated deployment via <b>Jenkins CI/CD</b>.</li>
           </ul>
-        </div></div></td></tr>
-
-        <tr class="sys" data-cat="voice">
-          <td><div class="name">Non-Autoregressive TTS Engine</div><div class="sub">from scratch — acoustic transformer → HiFi-GAN</div></td>
-          <td>Speech Synthesis</td>
-          <td class="stack">PyTorch · MFA · HiFi-GAN</td>
-          <td><span class="badge prod">WORK</span></td>
-        </tr>
-        <tr class="drawer" data-cat="voice"><td colspan="4"><div class="dw"><div class="dw-in">
-          <div class="role">Wasserstoff · PyTorch · Speech</div>
-          <p>A complete mel-spectrogram TTS system with no pretrained shortcuts: custom acoustic transformer (encoder–decoder, duration predictor, length regulator), Montreal Forced Aligner preprocessing for phoneme–duration alignment, seconds-to-mel-frame conversion, token–duration mismatch resolution, and HiFi-GAN vocoding.</p>
-          <div class="dlinks"><a href="https://huggingface.co/spaces/Lakshay1201/mel-spectrogram-tts-from-scratch" target="_blank" rel="noopener">→ demo on HF Spaces</a></div>
         </div></div></td></tr>
 
         <tr class="sys" data-cat="agents">
